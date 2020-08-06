@@ -94,10 +94,46 @@ paste(a[[1]],collapse="")
 # 문자 순서 뒤바꾸기
 reversed <- a[[1]][12:1]
 reversed
-# 문자 순서 뒤바꾸는 함수 만들기
+# 문자 순서 한글자씩 뒤바꾸는 함수 만들기
 reverse_myf <- function (string){
   a <- strsplit(string,split="")
   reversed <- a[[1]][nchar(string):1]
   paste(reversed,collapse="")
 }
 reverse_myf("love of my life")
+# 어절단위로 뒤집기
+rev_word <- function(string){
+  a <- strsplit(string,split=" ")
+  str_length <- length(a[[1]])
+  reversed <- a[[1]][str_length:1]
+  paste(reversed,collapse=" ")  
+}
+rev_word("how is she?")
+# 카이제곱검정, 행의 합은 rowSums(), 열의 합은 colSums(), outer()는 매트릭스내의 행과 열을 각각 매치시켜서 곱을 구함
+# 자유도는 (2-1)*(2-1)로 구함(df), 들어가있는 숫자가 작아서 Yates correction을 했는데 이런경우 correct=F를 넣어줌. 
+data <- matrix(c(1,2,3,4),nrow=2,byrow=T)
+data
+chisq <- function(obs){
+  expected <- outer(rowSums(obs),colSums(obs))/sum(obs)
+  sum((obs-expected)^2/expected)
+}
+data
+chisq(data)
+1-pchisq(0.07936508,1)
+chisq.test(data)
+chisq.test(data,correct=F)
+# dot chart, cex는 글자크기, color를 변수별로 구분해서 지정하기위해 factor로 변경, cyl별로 그룹을 나눠서 나오게 함. 
+plot(mtcars$mpg)
+dotchart(mtcars$mpg,labels=row.names(mtcars),cex=0.6)
+carmpg <- mtcars[order(mtcars$mpg),]
+carmpg
+carmpg$cyl <- factor(carmpg$cyl)
+carmpg$color[carmpg$cyl==4] <- "blue"
+carmpg$color[carmpg$cyl==6] <- "green"
+carmpg$color[carmpg$cyl==8] <- "red"
+dotchart(carmpg$mpg,labels=row.names(carmpg),cex=.7,col=carmpg$color,groups=carmpg$cyl,main="milage",xlab="miles per gallon")
+# 
+mtcars  
+newdata <- mtcars[,1:2]
+newdata[which(newdata$cyl==4),]
+newdata[newdata$cyl==4,]
