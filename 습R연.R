@@ -15,18 +15,18 @@ names(data)
 data %>% group_by(ID)
 filter(data,ID==348)
  names(data)
-# data IDë³„ë¡œ ALSFRS ë¶„ë¥˜í•˜ê¸°
+# data IDë³„ë¡œ ALSFRS ë¶„ë¥˜?•˜ê¸?
 data %>% gather(key,value,ALSFRS0:ALSFRS18.12) %>% 
   separate(key,c("variable","type"),6) %>% 
   spread(variable,value)
 # character
 n=3
 m="3"
-# nì˜ ë¬¸ìì—¬ë¶€ í™•ì¸ ë° ë¬¸ìë¡œ ë³€ê²½í•˜
+# n?˜ ë¬¸ì?—¬ë¶€ ?™•?¸ ë°? ë¬¸ìë¡? ë³€ê²½í•˜
 is.character(n)
 class(n)
 as.character(n)
-# ë¬¸ìí•©ì¹˜ê¸°
+# ë¬¸ì?•©ì¹˜ê¸°
 hi <- paste("hi","jack")
 hi
 paste("1",1:10,sep="-")
@@ -38,70 +38,70 @@ rownames(mtcars)
 nchar(cars)
 nchar(mtcars)
 cars <- rownames(mtcars)
-# mtcarsì˜ í–‰ ë³€ìˆ˜ ì¤‘ ê¸€ììˆ˜êµ¬í•˜ê¸°
+# mtcars?˜ ?–‰ ë³€?ˆ˜ ì¤? ê¸€??ˆ˜êµ¬í•˜ê¸?
 nchar(cars)
-# í–‰ ë³€ìˆ˜ì˜ ê¸¸ì´ ì¤‘ ê°€ì¥ ê¸´ ë³€ìˆ˜ê°€ ìˆëŠ” ìœ„ì¹˜ ì°¾ê¸°
+# ?–‰ ë³€?ˆ˜?˜ ê¸¸ì´ ì¤? ê°€?¥ ê¸? ë³€?ˆ˜ê°€ ?ˆ?Š” ?œ„ì¹? ì°¾ê¸°
 which(nchar(cars)==max(nchar(cars)))
-# í–‰ë³€ìˆ˜ì˜ ê¸¸ì´ê°€ ê°€ì¥ ê¸´ ë³€ìˆ˜ì˜ ì´ë¥´
+# ?–‰ë³€?ˆ˜?˜ ê¸¸ì´ê°€ ê°€?¥ ê¸? ë³€?ˆ˜?˜ ?´ë¥?
 cars[which(nchar(cars)==max(nchar(cars)))]
-# ì´ë¦„ì— zê°€ ë“¤ì–´ìˆëŠ” ë³€ìˆ˜ ì°¾ê¸°
+# ?´ë¦„ì— zê°€ ?“¤?–´?ˆ?Š” ë³€?ˆ˜ ì°¾ê¸°
 cars[grep("z",cars)]
 cars[grep("v",cars)]
-# carsì—ì„œ ë¬¸ìë“¤ ì „ë¶€ë‹¤ ì†Œë¬¸ì ë˜ëŠ” ëŒ€ë¬¸ìë¡œ ë°”ê¾¸ê¸°
+# cars?—?„œ ë¬¸ì?“¤ ? „ë¶€?‹¤ ?†Œë¬¸ì ?˜?Š” ??€ë¬¸ìë¡? ë°”ê¾¸ê¸?
 tolower(cars)
 toupper(cars)
-# carsì—ì„œ toyotaê°€ ë“¤ì–´ìˆëŠ” ê²ƒì˜ í•­ëª© ë³´ì—¬ì£¼ê¸° 
+# cars?—?„œ toyotaê°€ ?“¤?–´?ˆ?Š” ê²ƒì˜ ?•­ëª? ë³´ì—¬ì£¼ê¸° 
 grep("toyota",tolower(cars),value=TRUE)
 grep("toyota",tolower(cars),value=T)
-# stringr íŒ¨í‚¤ì§€ ì„¤ì¹˜
+# stringr ?Œ¨?‚¤ì§€ ?„¤ì¹?
 library(stringr)
-# carsì—ì„œ tê°€ ë“¤ì–´ìˆëŠ” ê°ê°ë³€ìˆ˜ë“¤ë‚´ì—ì„œì˜ ê°¯ìˆ˜ ë³´ì—¬ì¤Œ
+# cars?—?„œ tê°€ ?“¤?–´?ˆ?Š” ê°ê°ë³€?ˆ˜?“¤?‚´?—?„œ?˜ ê°??ˆ˜ ë³´ì—¬ì¤?
 str_count(cars,"t")
-# carì—ì„œ tê°€ ë“¤ì–´ìˆëŠ” ì´ ê°¯ìˆ˜ 
+# car?—?„œ tê°€ ?“¤?–´?ˆ?Š” ì´? ê°??ˆ˜ 
 sum(str_count(tolower(cars),"toyota"))
-# 40ë¶€í„° 120ê¹Œì§€ë¥¼ 300ê°œê°€ ë‚˜ì˜¤ê²Œ ê· ì¼í•œ ê°„ê²©ìœ¼ë¡œ ìˆ«ì ìª¼ê°œê¸°
+# 40ë¶€?„° 120ê¹Œì?€ë¥? 300ê°œê?€ ?‚˜?˜¤ê²? ê· ì¼?•œ ê°„ê²©?œ¼ë¡? ?ˆ«? ìª¼ê°œê¸?
 x <- seq(40,120,length=300)
 x
-# xë¥¼ í‰ê· ì´ 80ì´ê³  í‘œì¤€í¸ì°¨ê°€ 10ì´ ë˜ê²Œ ì •ê·œë¶„í¬ë¡œ 
+# xë¥? ?‰ê· ì´ 80?´ê³? ?‘œì¤€?¸ì°¨ê?€ 10?´ ?˜ê²? ? •ê·œë¶„?¬ë¡? 
 y <- dnorm(x,mean=80,sd=10)
 y
-# 40ë¶€í„° 120ê¹Œì§€ ì •ê·œë¶„í¬ë¥¼ ê·¸ë˜í”„ë¡œ ê·¸ë¦¬ê¸°
+# 40ë¶€?„° 120ê¹Œì?€ ? •ê·œë¶„?¬ë¥? ê·¸ë˜?”„ë¡? ê·¸ë¦¬ê¸?
 plot(x,y)
-# ê·¸ë˜í”„ë¥¼ ì„ ìœ¼ë¡œ ë‚˜ì˜¤ê²Œ í•˜ê³  ìƒ‰ì„ ë¹¨ê°„ìƒ‰ìœ¼ë¡œ
+# ê·¸ë˜?”„ë¥? ?„ ?œ¼ë¡? ?‚˜?˜¤ê²? ?•˜ê³? ?ƒ‰?„ ë¹¨ê°„?ƒ‰?œ¼ë¡?
 plot(x,y,type="l",col="red")
-# ë¼ì¸ ì¶”ê°€
+# ?¼?¸ ì¶”ê?€
 lines(x,dnorm(x,mean=80,sd=20),col="blue")
-# 65ë¶€í„° 75ê¹Œì§€ì˜ í™•ë¥ êµ¬í•˜ê¸°
+# 65ë¶€?„° 75ê¹Œì?€?˜ ?™•ë¥ êµ¬?•˜ê¸?
 x2 <- seq(65,75,length=200)
 y2 <- dnorm(x2,mean=80,sd=10)
 polygon(c(65,x2,75),c(0,y2,0),col="grey")
-# í‰ê· ì´ 80ì´ê³  í‘œì¤€í¸ì°¨ê°€ 10ì¸ ì •ê·œë¶„í¬ì˜ 65ì—ì„œ 75ì‚¬ì´ì˜ í™•ë¥ êµ¬í•˜ê¸°
+# ?‰ê· ì´ 80?´ê³? ?‘œì¤€?¸ì°¨ê?€ 10?¸ ? •ê·œë¶„?¬?˜ 65?—?„œ 75?‚¬?´?˜ ?™•ë¥ êµ¬?•˜ê¸?
 pnorm(75,mean=80,sd=10)-pnorm(65,mean=80,sd=10)
-# í‰ê· ë³´ë‹¤ í°ê°’ì—ì„œ ì˜¤ë¥¸ìª½ ëê¹Œì§€ì˜ í™•ë¥ 
+# ?‰ê· ë³´?‹¤ ?°ê°’ì—?„œ ?˜¤ë¥¸ìª½ ?ê¹Œì?€?˜ ?™•ë¥?
 pnorm(92,mean=80,sd=10,lower.tail=F)
 1-pnorm(92,mean=80,sd=10) 
 pnorm(68,mean=80,sd=10)
-# 30%ì§€ì ì°¾ê¸°
+# 30%ì§€? ì°¾ê¸°
 qnorm(0.3,mean=80,sd=10)
 qnorm(0.8,mean=80,sd=10)
 # ì¤‘ê°„ 60%ì°¾ê¸°
 qnorm(0.2,mean=80,sd=10)
 qnorm(0.8,mean=80,sd=10)
-# ë¬¸ì ìª¼ê°œê¸°
+# ë¬¸ì ìª¼ê°œê¸?
 a <- strsplit("how are you?",split="")
-# ë¬¸ì ë‹¤ì‹œ í•©ì¹˜ê¸° 
+# ë¬¸ì ?‹¤?‹œ ?•©ì¹˜ê¸° 
 paste(a[[1]],collapse="")
-# ë¬¸ì ìˆœì„œ ë’¤ë°”ê¾¸ê¸°
+# ë¬¸ì ?ˆœ?„œ ?’¤ë°”ê¾¸ê¸?
 reversed <- a[[1]][12:1]
 reversed
-# ë¬¸ì ìˆœì„œ í•œê¸€ìì”© ë’¤ë°”ê¾¸ëŠ” í•¨ìˆ˜ ë§Œë“¤ê¸°
+# ë¬¸ì ?ˆœ?„œ ?•œê¸€??”© ?’¤ë°”ê¾¸?Š” ?•¨?ˆ˜ ë§Œë“¤ê¸?
 reverse_myf <- function (string){
   a <- strsplit(string,split="")
   reversed <- a[[1]][nchar(string):1]
   paste(reversed,collapse="")
 }
 reverse_myf("love of my life")
-# ì–´ì ˆë‹¨ìœ„ë¡œ ë’¤ì§‘ê¸°
+# ?–´? ˆ?‹¨?œ„ë¡? ?’¤ì§‘ê¸°
 rev_word <- function(string){
   a <- strsplit(string,split=" ")
   str_length <- length(a[[1]])
@@ -109,8 +109,8 @@ rev_word <- function(string){
   paste(reversed,collapse=" ")  
 }
 rev_word("how is she?")
-# ì¹´ì´ì œê³±ê²€ì •, í–‰ì˜ í•©ì€ rowSums(), ì—´ì˜ í•©ì€ colSums(), outer()ëŠ” ë§¤íŠ¸ë¦­ìŠ¤ë‚´ì˜ í–‰ê³¼ ì—´ì„ ê°ê° ë§¤ì¹˜ì‹œì¼œì„œ ê³±ì„ êµ¬í•¨
-# ììœ ë„ëŠ” (2-1)*(2-1)ë¡œ êµ¬í•¨(df), ë“¤ì–´ê°€ìˆëŠ” ìˆ«ìê°€ ì‘ì•„ì„œ Yates correctionì„ í–ˆëŠ”ë° ì´ëŸ°ê²½ìš° correct=Fë¥¼ ë„£ì–´ì¤Œ. 
+# ì¹´ì´? œê³±ê?€? •, ?–‰?˜ ?•©??€ rowSums(), ?—´?˜ ?•©??€ colSums(), outer()?Š” ë§¤íŠ¸ë¦??Š¤?‚´?˜ ?–‰ê³? ?—´?„ ê°ê° ë§¤ì¹˜?‹œì¼œì„œ ê³±ì„ êµ¬í•¨
+# ??œ ?„?Š” (2-1)*(2-1)ë¡? êµ¬í•¨(df), ?“¤?–´ê°€?ˆ?Š” ?ˆ«?ê°€ ?‘?•„?„œ Yates correction?„ ?–ˆ?Š”?° ?´?Ÿ°ê²½ìš° correct=Fë¥? ?„£?–´ì¤?. 
 data <- matrix(c(1,2,3,4),nrow=2,byrow=T)
 data
 chisq <- function(obs){
@@ -122,7 +122,7 @@ chisq(data)
 1-pchisq(0.07936508,1)
 chisq.test(data)
 chisq.test(data,correct=F)
-# dot chart, cexëŠ” ê¸€ìí¬ê¸°, colorë¥¼ ë³€ìˆ˜ë³„ë¡œ êµ¬ë¶„í•´ì„œ ì§€ì •í•˜ê¸°ìœ„í•´ factorë¡œ ë³€ê²½, cylë³„ë¡œ ê·¸ë£¹ì„ ë‚˜ëˆ ì„œ ë‚˜ì˜¤ê²Œ í•¨. 
+# dot chart, cex?Š” ê¸€??¬ê¸?, colorë¥? ë³€?ˆ˜ë³„ë¡œ êµ¬ë¶„?•´?„œ ì§€? •?•˜ê¸°ìœ„?•´ factorë¡? ë³€ê²?, cylë³„ë¡œ ê·¸ë£¹?„ ?‚˜?ˆ ?„œ ?‚˜?˜¤ê²? ?•¨. 
 plot(mtcars$mpg)
 dotchart(mtcars$mpg,labels=row.names(mtcars),cex=0.6)
 carmpg <- mtcars[order(mtcars$mpg),]
@@ -137,3 +137,141 @@ mtcars
 newdata <- mtcars[,1:2]
 newdata[which(newdata$cyl==4),]
 newdata[newdata$cyl==4,]
+# binomial (0.5ÀÇ È®·üÀÎµ¥ 10°³»Ì¾ÒÀ»¶§ 6°³°¡ ³ª¿Ã È®·ü),hypergeometric distribution (ÀüÃ¼ Áß ³²ÀÚ°¡ 8, ¿©ÀÚ°¡ 10¸íÀÏ¶§ 10¸íÀ» ¼±¹ßÇØ¼­ ±× Áß¿¡¼­ ³²ÀÚ°¡ 5¸íÀÏ È®·ü)
+dbinom(6,10,0.5)
+dhyper(5,8,10,10)
+?dbinom
+dhyper(3,24,36,10)
+# hypergeometric distributionÀ» 100¹ø ½ÇÇàÇÏ°ÔÇÏ´Â ¸í·É¹®
+a=100
+approx <- numeric(length=a)
+for (i in 1:a){
+  approx[i]=dhyper(3,4*i,6*i,10)
+}
+approx
+plot(approx[2:100])
+# hypergeometric distributionÀÌ binomial distribution¿¡ ±ÙÁ¢ÇÑ´Ù´Â °ÍÀ» º¸ÀÌ±â À§ÇÑ ¼±Ãß°¡
+abline(h=dbinom(3,10,0.4),col="red")
+approx-dbinom(3,10,0.4)
+# Aids2 Åë°è·®À» °¡Áö°í ºĞ¼®, aggregate(±Ã±İÇÑºÎºĞ, ±âÁØ, ¾Ë°í½ÍÀº °ª) 
+install.packages("MASS")
+library(MASS)
+data(Aids2)
+str(Aids2)
+?Aids2
+head(Aids2)
+summary(Aids2)
+which(Aids2$age==0)
+Aids2[Aids2$age==0,]
+Alive <- Aids2[which(Aids2$status=="A"),]
+Alive
+Dead <- Aids2[Aids2$status=="D",]
+Dead
+aggregate(Alive$age,by=list(Alive$sex),mean)
+aggregate(Dead$age,by=list(Dead$sex),mean)
+aggregate(Aids2$age,by=list(Aids2$sex,Aids2$status),median)
+# line plot, par(mfrow=c(n1,n2))·Î ¿·¿¡ÀÖ´Â ±×·¡ÇÁÃ¢ ºĞÇÒ°¡´É, ±×·¡ÇÁ Å¸ÀÔÀÌ³ª Á¡ÀÇ ¸ğ¾ç º¯°æ  
+x <- c(1:10)
+y <- x^2-x+10
+par(mfrow=c(2,4))
+for(i in 1:8){
+  plot(x,y, type="p",col="blue",pch=i)
+}
+x <- c(1:10)
+y <- x^2-x+10
+par(mfrow=c(2,4))
+types=c("p","l","o","b","c","s","S","h")
+for(i in 1:8){
+  plot(x,y, type=types[i],col="blue",pch=i)
+}
+# if,else¹®, ¹®ÀåÀÌ ³ª¿À°Ô ÇÏ·Á¸é return, ¼ıÀÚ¿Í ¹®ÀåÀÌ È¥ÀçµÉ¶§´Â paste, ¼Ò¼öÁ¡ 2ÀÚ¸®·Î ÇÏ·Á¸é round(~,2) 
+mean_by_cyl <- function(x){
+  if(x==4){a <- round(mean(mtcars[which(mtcars$cyl==4),][,1]),2)
+    return(paste("the avg mile per gallon of",x,"cylinder car is",a))
+  }
+  else if(x==6){b <- round(mean(mtcars[which(mtcars$cyl==6),][,1]),2)
+  return(paste("the avg mile per gallon of",x,"cylinder car is",b))
+  }else if(x==8){c <- round(mean(mtcars[which(mtcars$cyl==8),][,1]),2)
+  return(paste("the avg mile per gallon of",x,"cylinder car is",c))
+  }else{print("Wrong number")
+  }
+}
+mean_by_cyl <- function(x){
+  mean(mtcars[which(mtcars$cyl==x),][,1])
+}
+mean_by_cyl(6)  
+# mySQL
+install.packages("RMySQL")
+library(RMySQL)
+mydb <- dbConnect(MySQL(),user="root",password="5553",dbname="sampdb")
+# R¸¶Å©´Ù¿î 
+update.packages()
+# matrix, Çà·Ä°öÀº %*%·Î, t(b)ÇÏ¸é Çà·ÄÇüÅÂ ¹Ù²ñ 
+a=matrix(c(1,2,3,6,7,8),nrow=2,byrow=F)
+a
+b=array(1:3,c(2,3))
+b
+class(b)
+a*b
+a%*%b
+t(b)
+a%*%t(b)
+a==b
+# matrix ÆÇº°½Ä(det), ¿ªÇà·Ä (solve) °¢°¢ ³»ÀåÇÔ¼ö°¡ ÀÖÀ½. 
+def_f <- function(a){
+  d <- a[1,1]*a[2,2]-a[1,2]*a[2,1]
+  return(d)
+}
+c <- matrix(c(1,4,2,7),nrow=2)
+def_f(b)
+det(b)
+array(1:3,c(4,5))
+inv_f <- function(x){
+  b <- matrix(nrow=2,ncol=2)
+  b[1,1] <- x[2,2]
+  b[2,2] <- x[1,1]
+  b[1,2] <- -x[1,2]
+  b[2,1] <- -x[2,1]
+  return(b)
+}
+inv_f(c)
+solve(c)
+c%*%solve(c)
+round(c%*%solve(c),2)
+# eigen vector(°öÇßÀ»¶§ ÀÚ±âÀÚ½ÅÀÇ »ó¼ö¹è·Î ¸¸µå´Â Çà·Ä),eigen value
+a <- matrix(c(3,2,7,4,2,1,4,5,7),nrow=3)
+a
+ev <- eigen(a)$values
+evec <- eigen(a)$vectors
+evec%*%diag(ev)%*%solve(evec)
+ev
+trans <- function (x){
+  b <- matrix(nrow=nrow(x),ncol=ncol(x))
+  for (i in 1:nrow(x)){
+    for (j in 1:ncol(x)){
+      b[j,i] <- a[i,j]
+    }
+  }
+  return(b)
+}
+trans(b)
+# ggplot, stat_smooth´Â °üÅëÇÏ´Â ¼±À» ¸¸µé¾îÁÜ. levelÀº ½Å·Úµµ 
+age <- c(21,42,53,67,45,23,29,68,74,89)
+hr <- c(102,105,123,53,74,98,45,21,57,90)
+df <- data.frame(age,hr)
+df
+lm_result <- lm(hr~age,data=df)
+lm_result
+hr <- -0.4323*age+98.8882
+print(paste(-0.4323,"*age","+",98.8882))
+library(ggplot2)
+ggplot(df,aes(age,hr))+geom_point()+xlab("AGE")+ylab("Heart Rate")+ggtitle("age and heart rate")+stat_smooth(method=lm,level=0.99)
+# ¼±Çü¸ğµ¨, ÀÜÂ÷¸¦ ÃÖ¼Ò·Î ÇÏ´Â ¼±ÀÌ ±×¾îÁü , summary·Î ¼öÄ¡µé ÇÑ¹ø¿¡ º¼ ¼ö ÀÖÀ½. 
+fit <- lm(hr~age)
+fit
+plot(age,hr,xlim=c(0,100))
+abline(fit,col="red")
+fit$coefficients[[1]]
+fit$coefficients[[2]]
+fit$residuals
+summary(fit)
