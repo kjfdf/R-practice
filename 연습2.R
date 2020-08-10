@@ -70,3 +70,4 @@ chisq.test(result)
 fisher.test(result)
 #Cochrane armitage test
 acs$smoking=factor(acs$smoking,levels=c("Never","Ex-smoker","Smoker")) #never, ex-smoker, smoker 순으로 서열을 부여하기 위해 순서 변경 
+prop.trend.test()
