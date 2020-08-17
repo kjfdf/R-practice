@@ -71,3 +71,20 @@ fisher.test(result)
 #Cochrane armitage test
 acs$smoking=factor(acs$smoking,levels=c("Never","Ex-smoker","Smoker")) #never, ex-smoker, smoker 순으로 서열을 부여하기 위해 순서 변경 
 prop.trend.test()
+#mosaic plot
+mosaicplot(result)
+demo("colors")
+colors()
+mosaicplot(result,color=c("tan1","firebrick2"),xlab="Smoking",ylab="Hypertension")
+t(result)
+mytable(smoking~age,data=acs)
+# bar plot
+mtcars
+result = table(mtcars$cyl,mtcars$sm)
+barplot(result, ylim=c(0,20),legend=rownames(result)) #figure legend넣기 
+mylegend=paste(rownames(result),"cyl") #legend 항목 뒤에 단위 "cyl"붙여주기
+barplot(result, ylim=c(0,20),legend=mylegend)
+barplot(result, ylim=c(0,20),legend=mylegend, beside=T) #막대들을 옆으로 쌓아서 보여주기 
+barplot(result, ylim=c(0,20),legend=mylegend, beside=T,horiz=T) #옆으로 눕혀서 보여주기 
+# 2그룹에서 짝을 이룬 데이터 분석 정규분포고 연속변수일때는 paired t-test, 정규분포가 아니거나 연속변수가 아닐때는 Wilcoxon signed rank test
+# 3그룹이상에서 짝을 이룬 데이터 분석은 중 결과가 정규분포이고 연속변수일때는 one-way repeated measures ANOVA, 정규분포가 아니거나 연속변수가 아닐때는 Friedman test, 세그룹이상인데 A약과 B약을 쓴 그룹간의 시간대별 비교는 two-way repeated measured ANOVA   
