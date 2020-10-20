@@ -446,3 +446,24 @@ var.test(he_wt~sex,data=~)
 t.test(he_wt~sex,data=~,var.equal=F)
 library(moonBook)
 densityplot(he_wt~sex,data=~)
+# imputation된 결과들 ALSFRS_R-imputated뒤에 일련번호 1부터 10까지 붙여서 저자
+for (i in 1:10)
+{
+  write.csv(complete(imp, i), file=paste("ALSFRS_R-imputated", i, ".csv", sep=""))
+}장
+# imputation된 CSV파일 불러들여서 NA값 갯수 확인 
+for (i in 1:10){
+  data_i <- read.csv(paste("ALSFRS_R-imputated", i, ".csv", sep=""))
+  print(table(is.na(data_i)))
+}
+data_1 <- read.csv("ALSFRS_R-imputated1.csv")
+table(is.na(data_1))
+sum(is.na(data_1))
+colSums(is.na(data_1))
+# 1차 imputation된 결과들 2차 imputation
+for (i in 1:10){
+  imp <- mice(data_i,10)
+  fit <- with(imp, glm(ALS.x~.,data=data_i))
+  pooled <- pool(fit)
+  summary(fit)
+}
