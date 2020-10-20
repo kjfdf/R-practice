@@ -467,3 +467,45 @@ for (i in 1:10){
   pooled <- pool(fit)
   summary(fit)
 }
+# 폴더에 있는 개별파일을 하나씩 읽어와서 하나씩 dataframe객체로 메모리상에 생성하는 방법 
+rm(list=ls())
+src_dir <- c("C:/A/B/C")
+src_file <- list.files(src_dir)
+src_file_cnt <- length(src_file)
+for (i in 1:src_file_cnt){
+  assign(paste0("day_",i),
+         read.table(paste0(src_dir,"/",src_file[i]),
+                    sep=",",
+                    header=F))
+  print(i)
+}
+rm(src_dir,src_file,src_file_cnt,i)
+ls()
+# 폴더내 파일들 자동으로 불러들이는 코드
+rm(list=ls()) #1.list를 청소해서 빈공간으로 만듦
+src_dir <- c("C:/users/A/R-file")
+src_file <- list.files(src_dir) #2.src_dir로 지정된 디렉토리내의 파일들의 이름을 list-up해서 객체로 만듦 
+src_file_cnt <- length(src_file) #3.파일갯수를 객체로 만듦 
+for (i in 1:src_file_cnt){  #폴더 내 파일을 loop돌려서 불러오기 
+  dataset <- read.table(
+    paste(src_dir,"/",src_file[i],sep=""),
+    sep=",",header=F,stringsAsFactors = F)
+  write.table(dataset,   #파일을 내보내면서 합치기 (txt파일 각각에 들어있는 내용을 하나의 파일안에 합치기)
+              paste(src_dir,"/","dataset_all.txt",sep=""),
+              sep=",",
+              row.names=F,
+              col.names = F,
+              quote=F,
+              append=T) #data를 stack화 시켜서 추가함. 
+  rm(dataset)
+  print(i)
+  )
+}
+# 데이터 프레임으로 불러오고 칼럼 이름 붙이기 
+dataset_all_df <- read.table(
+  paste(src_dir,"/","dataset_all.txt",sep=""),
+  sep=",",
+  header=F, #일단은 column name을 없는 상태로 만듦
+  col.names=c("A","B","C","D") #column이름을 A,B,C,D로 각각 붙이기 
+  stringsAsFactors = F,
+  na.strings="NA") #결측치는 NA값으로 입력 
