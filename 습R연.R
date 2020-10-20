@@ -15,18 +15,18 @@ names(data)
 data %>% group_by(ID)
 filter(data,ID==348)
  names(data)
-# data ID별로 ALSFRS 분류?���?
+# data IDë³„ë¡œ ALSFRS ë¶„ë¥˜?•˜ê¸?
 data %>% gather(key,value,ALSFRS0:ALSFRS18.12) %>% 
   separate(key,c("variable","type"),6) %>% 
   spread(variable,value)
 # character
 n=3
 m="3"
-# n?�� 문자?��부 ?��?�� �? 문자�? 변경하
+# n?˜ ë¬¸ìž?—¬ë¶€ ?™•?¸ ë°? ë¬¸ìžë¡? ë³€ê²½í•˜
 is.character(n)
 class(n)
 as.character(n)
-# 문자?��치기
+# ë¬¸ìž?•©ì¹˜ê¸°
 hi <- paste("hi","jack")
 hi
 paste("1",1:10,sep="-")
@@ -38,70 +38,70 @@ rownames(mtcars)
 nchar(cars)
 nchar(mtcars)
 cars <- rownames(mtcars)
-# mtcars?�� ?�� 변?�� �? 글?��?��구하�?
+# mtcars?˜ ?–‰ ë³€?ˆ˜ ì¤? ê¸€?ž?ˆ˜êµ¬í•˜ê¸?
 nchar(cars)
-# ?�� 변?��?�� 길이 �? 가?�� �? 변?��가 ?��?�� ?���? 찾기
+# ?–‰ ë³€?ˆ˜?˜ ê¸¸ì´ ì¤? ê°€?ž¥ ê¸? ë³€?ˆ˜ê°€ ?žˆ?Š” ?œ„ì¹? ì°¾ê¸°
 which(nchar(cars)==max(nchar(cars)))
-# ?��변?��?�� 길이가 가?�� �? 변?��?�� ?���?
+# ?–‰ë³€?ˆ˜?˜ ê¸¸ì´ê°€ ê°€?ž¥ ê¸? ë³€?ˆ˜?˜ ?´ë¥?
 cars[which(nchar(cars)==max(nchar(cars)))]
-# ?��름에 z가 ?��?��?��?�� 변?�� 찾기
+# ?´ë¦„ì— zê°€ ?“¤?–´?žˆ?Š” ë³€?ˆ˜ ì°¾ê¸°
 cars[grep("z",cars)]
 cars[grep("v",cars)]
-# cars?��?�� 문자?�� ?��부?�� ?��문자 ?��?�� ??�문자�? 바꾸�?
+# cars?—?„œ ë¬¸ìž?“¤ ? „ë¶€?‹¤ ?†Œë¬¸ìž ?˜?Š” ??€ë¬¸ìžë¡? ë°”ê¾¸ê¸?
 tolower(cars)
 toupper(cars)
-# cars?��?�� toyota가 ?��?��?��?�� 것의 ?���? 보여주기 
+# cars?—?„œ toyotaê°€ ?“¤?–´?žˆ?Š” ê²ƒì˜ ?•­ëª? ë³´ì—¬ì£¼ê¸° 
 grep("toyota",tolower(cars),value=TRUE)
 grep("toyota",tolower(cars),value=T)
-# stringr ?��?��지 ?���?
+# stringr ?Œ¨?‚¤ì§€ ?„¤ì¹?
 library(stringr)
-# cars?��?�� t가 ?��?��?��?�� 각각변?��?��?��?��?��?�� �??�� 보여�?
+# cars?—?„œ tê°€ ?“¤?–´?žˆ?Š” ê°ê°ë³€?ˆ˜?“¤?‚´?—?„œ?˜ ê°??ˆ˜ ë³´ì—¬ì¤?
 str_count(cars,"t")
-# car?��?�� t가 ?��?��?��?�� �? �??�� 
+# car?—?„œ tê°€ ?“¤?–´?žˆ?Š” ì´? ê°??ˆ˜ 
 sum(str_count(tolower(cars),"toyota"))
-# 40부?�� 120까�?��? 300개�?� ?��?���? 균일?�� 간격?���? ?��?�� 쪼개�?
+# 40ë¶€?„° 120ê¹Œì?€ë¥? 300ê°œê?€ ?‚˜?˜¤ê²? ê· ì¼?•œ ê°„ê²©?œ¼ë¡? ?ˆ«?ž ìª¼ê°œê¸?
 x <- seq(40,120,length=300)
 x
-# x�? ?��균이 80?���? ?��준?��차�?� 10?�� ?���? ?��규분?���? 
+# xë¥? ?‰ê· ì´ 80?´ê³? ?‘œì¤€?Ž¸ì°¨ê?€ 10?´ ?˜ê²? ? •ê·œë¶„?¬ë¡? 
 y <- dnorm(x,mean=80,sd=10)
 y
-# 40부?�� 120까�?� ?��규분?���? 그래?���? 그리�?
+# 40ë¶€?„° 120ê¹Œì?€ ? •ê·œë¶„?¬ë¥? ê·¸ëž˜?”„ë¡? ê·¸ë¦¬ê¸?
 plot(x,y)
-# 그래?���? ?��?���? ?��?���? ?���? ?��?�� 빨간?��?���?
+# ê·¸ëž˜?”„ë¥? ?„ ?œ¼ë¡? ?‚˜?˜¤ê²? ?•˜ê³? ?ƒ‰?„ ë¹¨ê°„?ƒ‰?œ¼ë¡?
 plot(x,y,type="l",col="red")
-# ?��?�� 추�?�
+# ?¼?¸ ì¶”ê?€
 lines(x,dnorm(x,mean=80,sd=20),col="blue")
-# 65부?�� 75까�?�?�� ?��률구?���?
+# 65ë¶€?„° 75ê¹Œì?€?˜ ?™•ë¥ êµ¬?•˜ê¸?
 x2 <- seq(65,75,length=200)
 y2 <- dnorm(x2,mean=80,sd=10)
 polygon(c(65,x2,75),c(0,y2,0),col="grey")
-# ?��균이 80?���? ?��준?��차�?� 10?�� ?��규분?��?�� 65?��?�� 75?��?��?�� ?��률구?���?
+# ?‰ê· ì´ 80?´ê³? ?‘œì¤€?Ž¸ì°¨ê?€ 10?¸ ? •ê·œë¶„?¬?˜ 65?—?„œ 75?‚¬?´?˜ ?™•ë¥ êµ¬?•˜ê¸?
 pnorm(75,mean=80,sd=10)-pnorm(65,mean=80,sd=10)
-# ?��균보?�� ?��값에?�� ?��른쪽 ?��까�?�?�� ?���?
+# ?‰ê· ë³´?‹¤ ?°ê°’ì—?„œ ?˜¤ë¥¸ìª½ ?ê¹Œì?€?˜ ?™•ë¥?
 pnorm(92,mean=80,sd=10,lower.tail=F)
 1-pnorm(92,mean=80,sd=10) 
 pnorm(68,mean=80,sd=10)
-# 30%지?��찾기
+# 30%ì§€? ì°¾ê¸°
 qnorm(0.3,mean=80,sd=10)
 qnorm(0.8,mean=80,sd=10)
-# 중간 60%찾기
+# ì¤‘ê°„ 60%ì°¾ê¸°
 qnorm(0.2,mean=80,sd=10)
 qnorm(0.8,mean=80,sd=10)
-# 문자 쪼개�?
+# ë¬¸ìž ìª¼ê°œê¸?
 a <- strsplit("how are you?",split="")
-# 문자 ?��?�� ?��치기 
+# ë¬¸ìž ?‹¤?‹œ ?•©ì¹˜ê¸° 
 paste(a[[1]],collapse="")
-# 문자 ?��?�� ?��바꾸�?
+# ë¬¸ìž ?ˆœ?„œ ?’¤ë°”ê¾¸ê¸?
 reversed <- a[[1]][12:1]
 reversed
-# 문자 ?��?�� ?��글?��?�� ?��바꾸?�� ?��?�� 만들�?
+# ë¬¸ìž ?ˆœ?„œ ?•œê¸€?ž?”© ?’¤ë°”ê¾¸?Š” ?•¨?ˆ˜ ë§Œë“¤ê¸?
 reverse_myf <- function (string){
   a <- strsplit(string,split="")
   reversed <- a[[1]][nchar(string):1]
   paste(reversed,collapse="")
 }
 reverse_myf("love of my life")
-# ?��?��?��?���? ?��집기
+# ?–´? ˆ?‹¨?œ„ë¡? ?’¤ì§‘ê¸°
 rev_word <- function(string){
   a <- strsplit(string,split=" ")
   str_length <- length(a[[1]])
@@ -109,8 +109,8 @@ rev_word <- function(string){
   paste(reversed,collapse=" ")  
 }
 rev_word("how is she?")
-# 카이?��곱�?�?��, ?��?�� ?��??� rowSums(), ?��?�� ?��??� colSums(), outer()?�� 매트�??��?��?�� ?���? ?��?�� 각각 매치?��켜서 곱을 구함
-# ?��?��?��?�� (2-1)*(2-1)�? 구함(df), ?��?��가?��?�� ?��?��가 ?��?��?�� Yates correction?�� ?��?��?�� ?��?��경우 correct=F�? ?��?���?. 
+# ì¹´ì´? œê³±ê?€? •, ?–‰?˜ ?•©??€ rowSums(), ?—´?˜ ?•©??€ colSums(), outer()?Š” ë§¤íŠ¸ë¦??Š¤?‚´?˜ ?–‰ê³? ?—´?„ ê°ê° ë§¤ì¹˜?‹œì¼œì„œ ê³±ì„ êµ¬í•¨
+# ?ž?œ ?„?Š” (2-1)*(2-1)ë¡? êµ¬í•¨(df), ?“¤?–´ê°€?žˆ?Š” ?ˆ«?žê°€ ?ž‘?•„?„œ Yates correction?„ ?–ˆ?Š”?° ?´?Ÿ°ê²½ìš° correct=Fë¥? ?„£?–´ì¤?. 
 data <- matrix(c(1,2,3,4),nrow=2,byrow=T)
 data
 chisq <- function(obs){
@@ -122,7 +122,7 @@ chisq(data)
 1-pchisq(0.07936508,1)
 chisq.test(data)
 chisq.test(data,correct=F)
-# dot chart, cex?�� 글?��?���?, color�? 변?��별로 구분?��?�� 지?��?��기위?�� factor�? 변�?, cyl별로 그룹?�� ?��?��?�� ?��?���? ?��. 
+# dot chart, cex?Š” ê¸€?ž?¬ê¸?, colorë¥? ë³€?ˆ˜ë³„ë¡œ êµ¬ë¶„?•´?„œ ì§€? •?•˜ê¸°ìœ„?•´ factorë¡? ë³€ê²?, cylë³„ë¡œ ê·¸ë£¹?„ ?‚˜?ˆ ?„œ ?‚˜?˜¤ê²? ?•¨. 
 plot(mtcars$mpg)
 dotchart(mtcars$mpg,labels=row.names(mtcars),cex=0.6)
 carmpg <- mtcars[order(mtcars$mpg),]
@@ -137,12 +137,12 @@ mtcars
 newdata <- mtcars[,1:2]
 newdata[which(newdata$cyl==4),]
 newdata[newdata$cyl==4,]
-# binomial (0.5�� Ȯ���ε� 10���̾����� 6���� ���� Ȯ��),hypergeometric distribution (��ü �� ���ڰ� 8, ���ڰ� 10���϶� 10���� �����ؼ� �� �߿��� ���ڰ� 5���� Ȯ��)
+# binomial (0.5ÀÇ È®·üÀÎµ¥ 10°³»Ì¾ÒÀ»¶§ 6°³°¡ ³ª¿Ã È®·ü),hypergeometric distribution (ÀüÃ¼ Áß ³²ÀÚ°¡ 8, ¿©ÀÚ°¡ 10¸íÀÏ¶§ 10¸íÀ» ¼±¹ßÇØ¼­ ±× Áß¿¡¼­ ³²ÀÚ°¡ 5¸íÀÏ È®·ü)
 dbinom(6,10,0.5)
 dhyper(5,8,10,10)
 ?dbinom
 dhyper(3,24,36,10)
-# hypergeometric distribution�� 100�� �����ϰ��ϴ� ���ɹ�
+# hypergeometric distributionÀ» 100¹ø ½ÇÇàÇÏ°ÔÇÏ´Â ¸í·É¹®
 a=100
 approx <- numeric(length=a)
 for (i in 1:a){
@@ -150,10 +150,10 @@ for (i in 1:a){
 }
 approx
 plot(approx[2:100])
-# hypergeometric distribution�� binomial distribution�� �����Ѵٴ� ���� ���̱� ���� ���߰�
+# hypergeometric distributionÀÌ binomial distribution¿¡ ±ÙÁ¢ÇÑ´Ù´Â °ÍÀ» º¸ÀÌ±â À§ÇÑ ¼±Ãß°¡
 abline(h=dbinom(3,10,0.4),col="red")
 approx-dbinom(3,10,0.4)
-# Aids2 ��跮�� ������ �м�, aggregate(�ñ��Ѻκ�, ����, �˰����� ��) 
+# Aids2 Åë°è·®À» °¡Áö°í ºÐ¼®, aggregate(±Ã±ÝÇÑºÎºÐ, ±âÁØ, ¾Ë°í½ÍÀº °ª) 
 install.packages("MASS")
 library(MASS)
 data(Aids2)
@@ -170,7 +170,7 @@ Dead
 aggregate(Alive$age,by=list(Alive$sex),mean)
 aggregate(Dead$age,by=list(Dead$sex),mean)
 aggregate(Aids2$age,by=list(Aids2$sex,Aids2$status),median)
-# line plot, par(mfrow=c(n1,n2))�� �����ִ� �׷���â ���Ұ���, �׷��� Ÿ���̳� ���� ��� ����  
+# line plot, par(mfrow=c(n1,n2))·Î ¿·¿¡ÀÖ´Â ±×·¡ÇÁÃ¢ ºÐÇÒ°¡´É, ±×·¡ÇÁ Å¸ÀÔÀÌ³ª Á¡ÀÇ ¸ð¾ç º¯°æ  
 x <- c(1:10)
 y <- x^2-x+10
 par(mfrow=c(2,4))
@@ -184,7 +184,7 @@ types=c("p","l","o","b","c","s","S","h")
 for(i in 1:8){
   plot(x,y, type=types[i],col="blue",pch=i)
 }
-# if,else��, ������ ������ �Ϸ��� return, ���ڿ� ������ ȥ��ɶ��� paste, �Ҽ��� 2�ڸ��� �Ϸ��� round(~,2) 
+# if,else¹®, ¹®ÀåÀÌ ³ª¿À°Ô ÇÏ·Á¸é return, ¼ýÀÚ¿Í ¹®ÀåÀÌ È¥ÀçµÉ¶§´Â paste, ¼Ò¼öÁ¡ 2ÀÚ¸®·Î ÇÏ·Á¸é round(~,2) 
 mean_by_cyl <- function(x){
   if(x==4){a <- round(mean(mtcars[which(mtcars$cyl==4),][,1]),2)
     return(paste("the avg mile per gallon of",x,"cylinder car is",a))
@@ -204,9 +204,9 @@ mean_by_cyl(6)
 install.packages("RMySQL")
 library(RMySQL)
 mydb <- dbConnect(MySQL(),user="root",password="5553",dbname="sampdb")
-# R��ũ�ٿ� 
+# R¸¶Å©´Ù¿î 
 update.packages()
-# matrix, ��İ��� %*%��, t(b)�ϸ� ������� �ٲ� 
+# matrix, Çà·Ä°öÀº %*%·Î, t(b)ÇÏ¸é Çà·ÄÇüÅÂ ¹Ù²ñ 
 a=matrix(c(1,2,3,6,7,8),nrow=2,byrow=F)
 a
 b=array(1:3,c(2,3))
@@ -217,7 +217,7 @@ a%*%b
 t(b)
 a%*%t(b)
 a==b
-# matrix �Ǻ���(det), ����� (solve) ���� �����Լ��� ����. 
+# matrix ÆÇº°½Ä(det), ¿ªÇà·Ä (solve) °¢°¢ ³»ÀåÇÔ¼ö°¡ ÀÖÀ½. 
 def_f <- function(a){
   d <- a[1,1]*a[2,2]-a[1,2]*a[2,1]
   return(d)
@@ -238,7 +238,7 @@ inv_f(c)
 solve(c)
 c%*%solve(c)
 round(c%*%solve(c),2)
-# eigen vector(�������� �ڱ��ڽ��� ������ ����� ���),eigen value
+# eigen vector(°öÇßÀ»¶§ ÀÚ±âÀÚ½ÅÀÇ »ó¼ö¹è·Î ¸¸µå´Â Çà·Ä),eigen value
 a <- matrix(c(3,2,7,4,2,1,4,5,7),nrow=3)
 a
 ev <- eigen(a)$values
@@ -255,7 +255,7 @@ trans <- function (x){
   return(b)
 }
 trans(b)
-# ggplot, stat_smooth�� �����ϴ� ���� �������. level�� �ŷڵ� 
+# ggplot, stat_smooth´Â °üÅëÇÏ´Â ¼±À» ¸¸µé¾îÁÜ. levelÀº ½Å·Úµµ 
 age <- c(21,42,53,67,45,23,29,68,74,89)
 hr <- c(102,105,123,53,74,98,45,21,57,90)
 df <- data.frame(age,hr)
@@ -266,7 +266,7 @@ hr <- -0.4323*age+98.8882
 print(paste(-0.4323,"*age","+",98.8882))
 library(ggplot2)
 ggplot(df,aes(age,hr))+geom_point()+xlab("AGE")+ylab("Heart Rate")+ggtitle("age and heart rate")+stat_smooth(method=lm,level=0.99)
-# ������, ������ �ּҷ� �ϴ� ���� �׾��� , summary�� ��ġ�� �ѹ��� �� �� ����. 
+# ¼±Çü¸ðµ¨, ÀÜÂ÷¸¦ ÃÖ¼Ò·Î ÇÏ´Â ¼±ÀÌ ±×¾îÁü , summary·Î ¼öÄ¡µé ÇÑ¹ø¿¡ º¼ ¼ö ÀÖÀ½. 
 fit <- lm(hr~age)
 fit
 plot(age,hr,xlim=c(0,100))
@@ -275,3 +275,24 @@ fit$coefficients[[1]]
 fit$coefficients[[2]]
 fit$residuals
 summary(fit)
+# imputation된 결과들 ALSFRS_R-imputated뒤에 일련번호 1부터 10까지 붙여서 저자
+for (i in 1:10)
+{
+  write.csv(complete(imp, i), file=paste("ALSFRS_R-imputated", i, ".csv", sep=""))
+}장
+# imputation된 CSV파일 불러들여서 NA값 갯수 확인 
+for (i in 1:10){
+  data_i <- read.csv(paste("ALSFRS_R-imputated", i, ".csv", sep=""))
+  print(table(is.na(data_i)))
+}
+data_1 <- read.csv("ALSFRS_R-imputated1.csv")
+table(is.na(data_1))
+sum(is.na(data_1))
+colSums(is.na(data_1))
+# 1차 imputation된 결과들 2차 imputation
+for (i in 1:10){
+  imp <- mice(data_i,10)
+  fit <- with(imp, glm(ALS.x~.,data=data_i))
+  pooled <- pool(fit)
+  summary(fit)
+}
